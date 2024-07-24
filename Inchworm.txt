@@ -1,0 +1,30 @@
+Inchworm problem;
+
+given length of branch, and distance between leaves and that the worm only eats on rest.
+given example 1) 12,6,4 returns 2
+
+12 / 4 = 3 so 4 leaves on the branch. (0, 4, 8, 12)
+12 / 6 = 2, so the worm stops tiwce. 
+
+given there is a leaf at the beggining middle and end, (3 leaves),
+the worm eats twice.
+
+example 2,
+
+21, 7, 3
+
+21 / 7 = 3, stops 3 times,
+21 / 3 = 7, 7 leaves,
+
+stops are 0, 7, 14, 21
+leaves are 0, 3, 6, 9, 12, 15, 18, 21
+
+there for, i could initialize 2 arrays where the 1st index is 0 for both, and fill the array with rest and leaf points,
+
+
+AFTER COMPLETION::
+
+arrays are not dynamically casted so i kept track of the entries of leaves and rests in there respective array,
+should of used dynamic arrays to avoid this.
+The leaves eaten result was founding by comparing arrays and counting each succesful comparison (where element in one array is the same in another),
+before reaching the end of the rests array.
