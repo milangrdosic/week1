@@ -1,0 +1,31 @@
+StreetParking::
+goal is to park the car,
+the park must not be --
+- infront of private driveway
+- infront of bus stop
+- infornt of side street 
+- 5 meters before bus stop
+- 10 meters before a bustop
+- 5 meters before side street
+- 5 meters after side steet 
+
+the street is represented as a string, with each index beign 5 meteres,
+'D' is for driveway
+'S' is for side street
+'B' is for bus stop
+'-' is for all other sections of street
+
+Logic::
+
+if current position is '-'
+check other parking parameters,
+- 5 meters before bus stop
+- 10 meters before a bustop
+- 5 meters before side street
+- 5 meters after side steet 
+
+if current position is 'D,B,S', return, itterate.
+
+
+
+

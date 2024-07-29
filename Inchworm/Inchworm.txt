@@ -1,7 +1,7 @@
 Inchworm problem;
 
 given length of branch, and distance between leaves and that the worm only eats on rest.
-given example 1) 12,6,4 returns 2
+given example 1:: 12,6,4 returns 2
 
 12 / 4 = 3 so 4 leaves on the branch. (0, 4, 8, 12)
 12 / 6 = 2, so the worm stops tiwce. 
