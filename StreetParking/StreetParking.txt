@@ -28,4 +28,11 @@ if current position is 'D,B,S', return, itterate.
 
 
 
+Ok so I did not do it the way i planned, though the planning did help my problem solving.
+I did use a forloop to itterate through positions on the street, but just simply used
+multiple if statemts used || and && statements to check if it is not able to park,
+as it passes each step, only by the end will it count the park.
+
+
+
 
