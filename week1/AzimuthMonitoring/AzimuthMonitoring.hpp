@@ -1,5 +1,6 @@
     #include <iostream>
     #include <stdlib.h>
+    #include <vector>
     #include <cctype>
 
 
@@ -7,7 +8,7 @@
 
     class AzimuthMonitoring {
         public:
-            int getAzimuth(const vector<string> instructions) {
+            int getAzimuth(vector<string> instructions) {
                 int azimuth = 0;
 
                 for (const string& instruction : instructions) {
