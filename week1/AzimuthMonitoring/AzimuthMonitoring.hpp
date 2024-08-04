@@ -44,7 +44,7 @@ public:
                     azimuth = (azimuth + 180) % 360;
                 }
             } else if (direction == "HALT") {
-                continue;
+                return azimuth;
             } else {
                 cerr << "Unknown instruction: " << direction << endl;
             }
