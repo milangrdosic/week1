@@ -19,34 +19,34 @@ public:
 
             if (direction == "LEFT") {
                 if (ss >> degrees) {
-                    // Handle "LEFT X" where X is provided
                     if (degrees < 1 || degrees > 179) {
                         cerr << "Error: Degrees must be between 1 and 179." << endl;
                         continue;
                     }
                     azimuth = (azimuth - degrees + 360) % 360;
                 } else {
-                    // Handle simple "LEFT"
                     azimuth = (azimuth - 90 + 360) % 360;
                 }
             } else if (direction == "RIGHT") {
                 if (ss >> degrees) {
-                    // Handle "RIGHT X" where X is provided
                     if (degrees < 1 || degrees > 179) {
                         cerr << "Error: Degrees must be between 1 and 179." << endl;
                         continue;
                     }
                     azimuth = (azimuth + degrees) % 360;
                 } else {
-                    // Handle simple "RIGHT"
                     azimuth = (azimuth + 90) % 360;
                 }
             } else if (direction == "TURN") {
                 string turnAround;
-                ss >> turnAround; // Read "AROUND"
+                ss >> turnAround;
                 if (turnAround == "AROUND") {
                     azimuth = (azimuth + 180) % 360;
                 }
+            } else if (direction == "HALT") {
+                continue;
+            } else {
+                cerr << "Unknown instruction: " << direction << endl;
             }
         }
 
