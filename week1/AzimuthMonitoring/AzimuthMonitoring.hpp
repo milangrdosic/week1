@@ -17,19 +17,29 @@ public:
 
             ss >> direction;
 
-            if (direction == "LEFT" || direction == "RIGHT") {
-                ss >> degrees;
-
-                // Ensure degrees is between 1 and 179
-                if (degrees < 1 || degrees > 179) {
-                    cerr << "Error: Degrees must be between 1 and 179." << endl;
-                    continue;
-                }
-
-                if (direction == "LEFT") {
+            if (direction == "LEFT") {
+                if (ss >> degrees) {
+                    // Handle "LEFT X" where X is provided
+                    if (degrees < 1 || degrees > 179) {
+                        cerr << "Error: Degrees must be between 1 and 179." << endl;
+                        continue;
+                    }
                     azimuth = (azimuth - degrees + 360) % 360;
-                } else if (direction == "RIGHT") {
+                } else {
+                    // Handle simple "LEFT"
+                    azimuth = (azimuth - 90 + 360) % 360;
+                }
+            } else if (direction == "RIGHT") {
+                if (ss >> degrees) {
+                    // Handle "RIGHT X" where X is provided
+                    if (degrees < 1 || degrees > 179) {
+                        cerr << "Error: Degrees must be between 1 and 179." << endl;
+                        continue;
+                    }
                     azimuth = (azimuth + degrees) % 360;
+                } else {
+                    // Handle simple "RIGHT"
+                    azimuth = (azimuth + 90) % 360;
                 }
             } else if (direction == "TURN") {
                 string turnAround;
