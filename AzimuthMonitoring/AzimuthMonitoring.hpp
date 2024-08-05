@@ -7,7 +7,7 @@ using namespace std;
 
 class AzimuthMonitoring {
 public:
-    int getAzimuth(const vector<string>& instructions) {
+    int getAzimuth(vector<string> instructions) {
         int azimuth = 0;
 
         for (const string& instruction : instructions) {
