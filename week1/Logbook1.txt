@@ -141,6 +141,31 @@ when turning right, (current facing + 90) % 360
 
 ////////////////////////////////////////////////////////////////////////////////
 
+CircularLine Problem::
 
+We neeed to find the longest minimal travel time between two stations on a circular route,
+represented by an array of travel times, e.g.
 
+array t[] = {1, 2, 3, 4}
 
+t[0] is station 0 which has a travel time of 1
+
+so if we go from t[0] to t[1], it took 1 unit of time.
+
+so we need to calculate both clockwise and counter clockwise travel time
+
+given array t[]
+
+for loop from i = 0 to N
+    for loop from i to N 
+        find clockwise time between station pair 
+            ensure the index doesnt exceed bounds of array
+        
+        find counter clockwise time between station pair   
+            ensure itteration starts within array bounds
+            ensure each itteration takes into account array bounds
+    
+    calculate shortest time between the two,
+    compare the shortest time to the global slowest time
+        if bigger, swap, else continue
+        
