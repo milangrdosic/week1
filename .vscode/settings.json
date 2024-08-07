@@ -3,7 +3,12 @@
         "ostream": "cpp",
         "string": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "__bit_reference": "cpp",
+        "bitset": "cpp",
+        "unordered_map": "cpp",
+        "chrono": "cpp",
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

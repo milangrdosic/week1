@@ -1,0 +1,61 @@
+Reppity Problem::
+
+We are given a string of with up to 50 inputs,
+
+FIND LENGTH OF LONGEST SUBSTRING that appears atleast twice.
+
+so given a string
+detirmine length of string
+
+given length, start at index 0 and itterate through array,
+
+take first index value, then ittereate through array with a nested loop to see if it
+appears atleast twice,
+
+    if it appears twice, take next index value and add to the substring 
+    (so substring consists of string[0] and string[1] now) and ittereate through again 
+    to see if it appears atleast twice.
+
+    if it doesnt appear atleast twice, move to next value
+
+    if it appears 0 and index is not 0, reset substring to new index value and start again
+
+
+so given a substring "ABCDEXXXYYYZZZABCDEZZZYYYXXX"
+
+it should take A, loop through and see how many times A repeats,
+it appears atleast twice, yes? count++;
+Substring doesnt reset to empty.
+if it doesnt appear atleast twice, substring is empty.
+
+
+Take substring + next index value (AB)
+does it appear atleast twice?
+    yes, count++ and substring doesnt empty,
+if it doesn't substring is empty,
+
+
+After completing the problem and researching on the geeks for geeks website I found my inital approach was wrong.
+
+I ended up doing this instead.
+
+Outer Loop (len)
+
+This loop iterates over possible lengths of the repeating substring from 1 to n / 2.
+    A substring must appear at least twice to be considered a repeating pattern. 
+    If the length of the substring is more than half of the total string length, 
+    it can't appear twice without overlapping
+
+
+First Inner Loop (i)
+
+For each len, the first inner loop iterates over starting positions i from 0 to n - 2 * len.
+This ensures that there is enough room left for at least two non-overlapping occurrences 
+of a substring of length len.
+
+Second Inner Loop (j)
+
+For each i, this loop checks for another occurrence of the substring starting from i by looking from j = i + len up to n - len.
+It compares the substring of length len starting at i with all possible substrings of length len that could follow it.
+
+This was a very difficult question and pushed my understand.
