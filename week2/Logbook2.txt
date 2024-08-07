@@ -59,3 +59,37 @@ For each i, this loop checks for another occurrence of the substring starting fr
 It compares the substring of length len starting at i with all possible substrings of length len that could follow it.
 
 This was a very difficult question and pushed my understand.
+
+ChangingString Porblem::
+
+this one i will solve through divide and conquor method
+
+Given arrays A={aaa} and B={baz} and K = 1;
+
+find largest distance between to indexes of A and B
+    if K == 0 return size
+    else
+    change index value to that of its partner
+        e.g.B[2] = A[2];
+    recursive function call
+    start again
+
+sort of worked, but here is the revised version
+
+cerate while loop for K > 0
+used a vector to keep track of diffeerences between the two values
+
+created a forloop to find biggest difference and kept track of index
+
+if the bigest difference is 0 and both values at that index are the same, the differnce at that index changes to one
+to show the change.
+
+itterate K backwrds
+
+when K == 0
+
+total distance is calculated and returned
+
+
+
+
