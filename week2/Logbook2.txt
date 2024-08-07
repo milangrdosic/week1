@@ -74,14 +74,28 @@ find largest distance between to indexes of A and B
     recursive function call
     start again
 
-sort of worked, but here is the revised version
+The logic was completely wrong here, i could do any recursive calls 
+as a proper base case couldnt be implemented without a heavy helper functions
+so I scrapped that idea.
 
-Calculate the initial differences
+I first created a vector of differences between the two arrays
 
-Sort the differences in descending order
+Then create a while loop - While(K > 0)
+    this loop held the logic to minimize the total distance by making K changes
 
-If all differences are zero and K is greater than zero, we need to force changes
+I then found the element with the largest difference and its index
+    If this number was 0 and K was > 0, K changes was returned as this was typically the 
+    A="aa", B="aa" and K = 2 case.
 
-Apply changes to minimize the total distance
+if statement to ensure the index is a valid position and maximum distance is non 0
+    largest distance is set to 0 as it is considered changed.
 
-Calculate the total distance after making the changes
+K--;
+
+when while loop ends
+
+calculation for total distance is made and returned.
+
+
+
+
