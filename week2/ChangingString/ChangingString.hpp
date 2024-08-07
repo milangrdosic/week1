@@ -17,7 +17,7 @@ public:
 
         sort(differences.begin(), differences.end(), greater<int>());
 
-        if (differences[0] == 0 && K > 0) {
+        if (differences[1] == 0 && K > 0) {
             return K * 1;  
         }
 
