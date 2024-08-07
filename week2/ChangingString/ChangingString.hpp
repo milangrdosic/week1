@@ -11,43 +11,20 @@ public:
         int len = A.length();
         vector<int> differences(len);
 
-        // Calculate the initial differences
         for (int j = 0; j < len; ++j) {
             differences[j] = abs(A[j] - B[j]);
         }
 
-        // If K changes are required, find the positions with the largest differences
-        while (K > 0) {
-            int maxDiff = 0;
-            int lenIndx = -1;
+        sort(differences.begin(), differences.end(), greater<int>());
 
-            // Find the maximum difference
-            for (int j = 0; j < len; ++j) {
-                if (differences[j] > maxDiff) {
-                    maxDiff = differences[j];
-                    lenIndx = j;
-                }
-            }
-
-            // If the maximum difference is zero, we must make changes to increase the distance
-            if (maxDiff == 0) {
-                for (int j = 0; j < len; ++j) {
-                    if (A[j] == B[j]) {
-                        differences[j] = 1;  // Minimum increase by changing 'a' to 'b' or vice versa
-                        lenIndx = j;
-                        break;
-                    }
-                }
-            }
-
-            // Set the difference at lenIndx to 0 if it was not zero initially
-            if (lenIndx != -1 && maxDiff != 0) {
-                differences[lenIndx] = 0;
-            }
-            K--;
+        if (differences[0] == 0 && K > 0) {
+            return K * 1;  
         }
 
-        // Calculate the total distance after making the changes
+        for (int i = 0; i < K; ++i) {
+            differences[i] = 0;
+        }
+
         int totalDistance = 0;
         for (int diff : differences) {
             totalDistance += diff;

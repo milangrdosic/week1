@@ -76,20 +76,12 @@ find largest distance between to indexes of A and B
 
 sort of worked, but here is the revised version
 
-cerate while loop for K > 0
-used a vector to keep track of diffeerences between the two values
+Calculate the initial differences
 
-created a forloop to find biggest difference and kept track of index
+Sort the differences in descending order
 
-if the bigest difference is 0 and both values at that index are the same, the differnce at that index changes to one
-to show the change.
+If all differences are zero and K is greater than zero, we need to force changes
 
-itterate K backwrds
+Apply changes to minimize the total distance
 
-when K == 0
-
-total distance is calculated and returned
-
-
-
-
+Calculate the total distance after making the changes
