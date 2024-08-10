@@ -2,7 +2,7 @@
 
 int main() {
     EggCartons egg;
-    int n = 4;
+    int n = 90;
 
     cout << egg.minCartons(n) << endl;
 
