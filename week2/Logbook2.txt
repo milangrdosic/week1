@@ -96,6 +96,37 @@ when while loop ends
 
 calculation for total distance is made and returned.
 
+EggCarton problem::
+
+we need to find the number of cartons to achieve the exact amount of eggs needed.
+There a two types of cartons, those that hold 6, and those that hold 8.
+n is exact number of eggs needed
+
+
+therefore, it could be:
+    n / 6,
+    n / 8
+    or 8+6 = n, or 8+6+6 = n;
+
+the first two are simple to implement with if statements.
+
+now for the combination were are looking for the smallest number of cartons,
+
+as it could be 8+6+6 or 8+8+6, we need two loops checking this.
+
+first starting with 8,
+
+a for loop that takes the product of 8 and the loop itteration,
+then in a nested for loop loop through and add 6,
+if the sum is equal to n, return the outer loop itterations by the inner loop itterations;
+
+now if this doesnt produce a result, we move to the loop for the carton with 6 eggs.
+
+and if this doesn't we go to the if (n % 8 == 0) and (n % 6 == 0) statments.
+Going from highest to lowest to ensure lowest possible cartions.
+
+and finally if that isnt true, return -1 for impossible.
+    
 
 
 
