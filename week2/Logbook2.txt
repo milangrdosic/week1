@@ -1,132 +1,130 @@
 Reppity Problem::
 
-We are given a string of with up to 50 inputs,
-
-FIND LENGTH OF LONGEST SUBSTRING that appears atleast twice.
-
-so given a string
-detirmine length of string
-
-given length, start at index 0 and itterate through array,
-
-take first index value, then ittereate through array with a nested loop to see if it
-appears atleast twice,
-
-    if it appears twice, take next index value and add to the substring 
-    (so substring consists of string[0] and string[1] now) and ittereate through again 
-    to see if it appears atleast twice.
-
-    if it doesnt appear atleast twice, move to next value
-
-    if it appears 0 and index is not 0, reset substring to new index value and start again
+Given a string with up to 50 characters, find the length of the longest substring that appears at least twice. Initially, 
+    I tried to solve the problem by iterating through the string, checking if each substring appeared at least twice, 
+    and then gradually expanding the substring to see if it continued to appear twice. However, this approach was 
+    flawed as it didn't efficiently account for overlapping substrings.
 
 
-so given a substring "ABCDEXXXYYYZZZABCDEZZZYYYXXX"
-
-it should take A, loop through and see how many times A repeats,
-it appears atleast twice, yes? count++;
-Substring doesnt reset to empty.
-if it doesnt appear atleast twice, substring is empty.
-
-
-Take substring + next index value (AB)
-does it appear atleast twice?
-    yes, count++ and substring doesnt empty,
-if it doesn't substring is empty,
+Determine the length of the string.
+Start from index 0 and iterate through the string.
+Check if the current character or substring appears at least twice.
+If it appears twice, continue expanding the substring.
+If it doesn't, reset the substring and move to the next character.
 
 
-After completing the problem and researching on the geeks for geeks website I found my inital approach was wrong.
-
-I ended up doing this instead.
-
-Outer Loop (len)
-
-This loop iterates over possible lengths of the repeating substring from 1 to n / 2.
-    A substring must appear at least twice to be considered a repeating pattern. 
-    If the length of the substring is more than half of the total string length, 
-    it can't appear twice without overlapping
+After struggling with the initial approach, I referred to resources like Geeks for Geeks
+ and realized that my method was inefficient. I learned that I needed a more systematic way 
+ to find repeating substrings by considering all possible substring lengths and ensuring they don't overlap.
 
 
-First Inner Loop (i)
+Use an outer loop to iterate over possible substring lengths.
+For each length, check all possible starting positions for that length.
+Use a second inner loop to compare the current substring with others that could follow it.
+Ensure the substring appears at least twice without overlapping.
+This approach was more efficient and allowed me to find the correct solution.
 
-For each len, the first inner loop iterates over starting positions i from 0 to n - 2 * len.
-This ensures that there is enough room left for at least two non-overlapping occurrences 
-of a substring of length len.
+This problem pushed my understanding of string manipulation and pattern searching. 
+The initial failures taught me the importance of considering edge cases, 
+like overlapping substrings, and the value of using systematic approaches to solve 
+complex problems.
 
-Second Inner Loop (j)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-For each i, this loop checks for another occurrence of the substring starting from i by looking from j = i + len up to n - len.
-It compares the substring of length len starting at i with all possible substrings of length len that could follow it.
+ChangingString Problem::
 
-This was a very difficult question and pushed my understand.
+Given two strings A and B, along with an integer K, the goal is to determine the largest 
+    possible distance between their characters after making K changes. 
+    I initially planned to solve this using a divide-and-conquer method but realized that 
+    recursion wasn't suitable without a proper base case and extensive helper functions.
 
-ChangingString Porblem::
+Attempted to use recursion to minimize the distance between the strings.
+Struggled with implementing a proper base case, leading to incorrect logic.
 
-this one i will solve through divide and conquor method
+I scrapped the initial recursive approach as it was overly complicated and inefficient.
 
-Given arrays A={aaa} and B={baz} and K = 1;
+Created a vector to track the differences between corresponding characters in A and B.
+Used a loop to minimize the total distance by making K changes.
+Focused on finding the largest difference and modifying it to reduce the overall distance.
+Returned the total distance after all changes were made.
 
-find largest distance between to indexes of A and B
-    if K == 0 return size
-    else
-    change index value to that of its partner
-        e.g.B[2] = A[2];
-    recursive function call
-    start again
+This problem highlighted the importance of recognizing when an approach isn't working 
+    and pivoting to a more straightforward solution. I learned that sometimes, 
+    a simple iterative approach can be more effective than a complex recursive one.
 
-The logic was completely wrong here, i could do any recursive calls 
-as a proper base case couldnt be implemented without a heavy helper functions
-so I scrapped that idea.
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-I first created a vector of differences between the two arrays
+EggCarton Problem::
 
-Then create a while loop - While(K > 0)
-    this loop held the logic to minimize the total distance by making K changes
+The goal is to determine the minimum number of cartons needed to achieve an exact 
+    number of eggs, given cartons of size 6 and 8. The challenge was to find the 
+    smallest number of cartons while considering various combinations.
 
-I then found the element with the largest difference and its index
-    If this number was 0 and K was > 0, K changes was returned as this was typically the 
-    A="aa", B="aa" and K = 2 case.
+Used basic if-statements to handle simple cases like n % 6 == 0 or n % 8 == 0.
+Then used loops to check combinations of 6 and 8 to achieve the exact number of eggs.
 
-if statement to ensure the index is a valid position and maximum distance is non 0
-    largest distance is set to 0 as it is considered changed.
+I initially underestimated the complexity of the problem, assuming the simple cases 
+    would be sufficient. However, I soon realized the need to account for 
+    combinations to minimize the number of cartons.
 
-K--;
+Implemented loops to check combinations starting with the larger carton (8).
+Nested a loop to add cartons of 6 until the exact number was achieved.
 
-when while loop ends
+If no valid combination was found, checked for other possibilities such as:
+    n % 6 == 0 or n % 8 == 0.
+If none of the conditions were met, returned -1 for impossible cases.
 
-calculation for total distance is made and returned.
+This problem emphasized the importance of considering all possible combinations 
+    when optimizing a solution. I learned that starting with larger elements and working 
+    downwards can often lead to more efficient solutions.
 
-EggCarton problem::
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-we need to find the number of cartons to achieve the exact amount of eggs needed.
-There a two types of cartons, those that hold 6, and those that hold 8.
-n is exact number of eggs needed
+RedAndBlack Problem::
 
-
-therefore, it could be:
-    n / 6,
-    n / 8
-    or 8+6 = n, or 8+6+6 = n;
-
-the first two are simple to implement with if statements.
-
-now for the combination were are looking for the smallest number of cartons,
-
-as it could be 8+6+6 or 8+8+6, we need two loops checking this.
-
-first starting with 8,
-
-a for loop that takes the product of 8 and the loop itteration,
-then in a nested for loop loop through and add 6,
-if the sum is equal to n, return the outer loop itterations by the inner loop itterations;
-
-now if this doesnt produce a result, we move to the loop for the carton with 6 eggs.
-
-and if this doesn't we go to the if (n % 8 == 0) and (n % 6 == 0) statments.
-Going from highest to lowest to ensure lowest possible cartions.
-
-and finally if that isnt true, return -1 for impossible.
-    
+The goal is to determine the minimum number of cards to remove from the top of a shuffled deck,
+    containing an equal number of red (R) and black (B) cards, such that no matter how the cards are turned over, 
+    the number of red cards never exceeds the number of black cards. If the condition is met from the beginning, 
+    no cards need to be removed.
 
 
+I started by iterating through the deck, checking if the red cards outnumber the black cards at any point.
+If they did, I considered removing cards from the top and continuing the check.
+The loop was supposed to continue until a valid cut was found where the red cards never exceeded the black ones.
 
+
+Initially, I made an error by using deck[i] == "R" instead of deck[i] == 'R', which caused logical issues in the code.
+My initial nested loop structure incorrectly handled the counting of red and black cards, 
+    leading to an incorrect check for the conditions required.
+
+I struggled with resetting and updating the substring after each iteration, which complicated the logic unnecessarily.
+
+
+I realized that the deck needed to be treated as a circular array, where the cards wrap around after reaching the end.
+I modified the approach to check every possible cut in the deck, 
+    starting from each index and simulating the deck's order after the cut.
+For each cut, I iterated through the deck and checked if at any point the red cards exceeded the black cards. 
+    If the condition was met, I moved to the next possible cut.
+As soon as I found a cut where the condition was satisfied, I returned that index as the solution.
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+MooingCow Problem:: 
+
+The cows in Byterland are mooing loudly, annoying the residents very much. Mrs. 
+    Darcy of the villa Pemberley is planning to resolve this problem by allowing only one cow to moo. 
+    She will pick the cow whose mooing is the least offensive to all the other cows. 
+    The farmland is divided into a grid of squares, each either empty or occupied by a cow. 
+    The dissatisfaction of a cow at (i, j) when another cow at (x, y) 
+    moos are calculated as the square of the Euclidean distance between them.
+
+I initially thought to approach the problem by iterating through the grid to identify the cows' positions. 
+    For each cow, I considered calculating the dissatisfaction it would cause to other cows by checking the Euclidean distance to each of them. 
+    However, prooved and difficult to manage, especially as the grid size increased. 
+
+The final solution involved a systematic approach to iterating over possible mooing cows and calculating dissatisfaction. 
+    I maintained a minimum dissatisfaction value, which was updated as I evaluated each cow. 
+    This method ensured that I efficiently found the cow whose mooing caused the least disturbance.
+
+The final solution was both efficient and accurate, providing a deeper understanding of handling grid-based problems. 
+    The process reinforced the importance of considering edge cases and optimizing algorithms for performance.
