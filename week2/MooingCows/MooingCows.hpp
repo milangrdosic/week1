@@ -33,7 +33,7 @@ public:
                     }
                 }
             }
-        }
+        }  
 
         return min_dissatisfaction;
     }
