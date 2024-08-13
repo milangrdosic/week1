@@ -1,0 +1,74 @@
+Arrows problem::
+
+The task is to find the length of the longest arrow in a given string. 
+    An arrow consists of a sequence of '-' or '=' characters following either '<' (left arrow) or '>' (right arrow).
+
+I decided to handle left and right arrows separately, 
+    checking for the longest sequence of '-' or '=' after '<' and before '>'. 
+    Initially, I attempted to solve the problem using while loops, 
+    but I faced challenges in managing the loops correctly,
+    especially in separating the identification of the arrowheads ('<' and '>') from measuring the length of the arrow body.
+
+My final solution maintains separate logic for left and right arrows. 
+    I used a primary for loop to iterate through the entire string, 
+    allowing me to identify the arrowheads without repeating old positions. 
+    Nested within this loop, I used additional for loops to measure the length of the arrow body.
+    I did this by counting the '-' or '=' characters following each arrowhead. 
+    After measuring each arrow, I checked if its length was the longest found so far, updating the maximum length accordingly. 
+    This systematic approach allowed me to efficiently identify and count both left and right arrows.
+
+The main issue I had in the beginning was properly identifying '<' and '>' within the string and then iterating through the rest of the string afterward. 
+    The while loops I initially used made it challenging to manage the iteration process effectively, leading to incorrect identification and counting of arrows.
+
+
+This problem taught me the importance of carefully managing loop logic, 
+    especially when dealing with different types of patterns within the same problem. 
+    It also reinforced the need to consider all possible variations of a pattern when designing a solution.
+    I realized that I needed an overarching loop to iterate through the string, 
+    combined with individual for loops to separate the identification and counting logic. 
+    By switching to a primary for loop to handle the string iteration and using nested for loops to manage the arrow logic, 
+    I was able to correctly identify and count the arrows without repeating old positions.
+
+This problem taught me the importance of carefully managing loop logic, 
+    especially when dealing with different types of patterns within the same problem. 
+    It reinforced the need to consider all possible variations of a pattern when designing a solution and the significance of clear and consistent loop management.
+
+When dealing with pattern recognition in strings, 
+    it is crucial to handle each pattern variation systematically to avoid errors and ensure accurate results. 
+    This problem highlighted the importance of thoughtful loop management in achieving correct and efficient results.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+fracCount problem::
+
+The task is to determine the position of a fraction (numerator/denominator) among all irreducible fractions between 0 and 1, 
+arranged in increasing order of their values.
+
+ My initial idea was to loop through all possible fractions with increasing denominators, 
+    and for each fraction, check if it is irreducible 
+    (i.e., the numerator and denominator are coprime). 
+    I implemented this using nested loops: the outer loop iterated through possible denominators, 
+    while the inner loop iterated through possible numerators for each denominator.
+
+After implementing the initial design, 
+    I realized that the approach could be optimized by stopping the iteration as soon as the target fraction was found. 
+    I added an early return condition to the code, which improved the efficiency by avoiding unnecessary calculations once the desired fraction was located.
+
+I encountered an issue when trying to create an if statement to check if the current fraction is irreducible. 
+    My initial logic caused the program to skip over some fractions, leading to incorrect counting.
+
+I used resources like GeeksforGeeks and discovered the gcd function available in the numeric library (C++17 or later). 
+    By incorporating the gcd function into my if condition, 
+    I was able to accurately determine whether a fraction was irreducible, 
+    fixing the counting errors and ensuring the program worked correctly.
+
+This problem reinforced the importance of understanding number theory concepts like the Greatest Common Divisor (GCD) when working with fractions. 
+    It also highlighted the need for optimizing algorithms for efficiency, 
+    particularly when dealing with nested loops.
+
+Recognizing early stopping conditions and leveraging existing libraries for mathematical operations can significantly enhance the efficiency and correctness of an algorithm. 
+    This problem taught me to be mindful of these aspects during the design and implementation phases.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+

@@ -9,14 +9,9 @@ class fracCount {
         int position(int numerator, int denominator) {
             int count = 0;
 
-            if (numerator == 1 && denominator == 2) {
-                return 1;
-            }
-
             for (int i = 2; i <= denominator; i++) {
                 for (int j = 1; j <= i; j++) {
-                    int gcdVal = gcd(j, i);
-                    if (gcdVal == 1) {
+                    if (gcd(j, i) == 1) {
                         count++;
                     }
 
