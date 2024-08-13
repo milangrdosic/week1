@@ -39,7 +39,7 @@ When dealing with pattern recognition in strings,
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-fracCount problem::
+FracCount problem::
 
 The task is to determine the position of a fraction (numerator/denominator) among all irreducible fractions between 0 and 1, 
 arranged in increasing order of their values.

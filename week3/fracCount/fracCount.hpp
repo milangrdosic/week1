@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class fracCount {
+class FracCount {
     public:
         int position(int numerator, int denominator) {
             int count = 0;
