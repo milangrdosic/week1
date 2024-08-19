@@ -93,10 +93,6 @@ It became clear that a more dynamic approach was necessary to effectively handle
 I transitioned to a recursive method to explore every possible way of inserting plus signs into the string. 
     This allowed for a deeper and more flexible examination of split combinations.
 
-To enhance the efficiency of the recursive solution, I implemented memoization to store the results of previously computed splits. 
-    This significantly reduced the number of recalculations by caching intermediate sums and their respective minimum additions, 
-    speeding up the process for larger input sizes.
 
 The progression from an iterative to a recursive approach underscored the importance of selecting the right algorithmic strategy based on the problem's demands. 
     The experience reinforced my understanding of recursion and dynamic programming, particularly in problems involving numerous possible combinations and states.
-The application of memoization taught me valuable lessons about optimizing recursive algorithms and managing computational overhead effectively.
