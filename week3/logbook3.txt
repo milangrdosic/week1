@@ -71,4 +71,32 @@ Recognizing early stopping conditions and leveraging existing libraries for math
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+QuickSums Problem:: 
 
+The first strategy involved a straightforward iterative approach where the string of digits was split into two substrings at every possible position. 
+    The first substring (plusStr) was treated as a sequence of digits where each was added individually,
+    while the second substring (remStr) was directly converted to an integer and added to the sum of plusStr.
+
+Using a for loop, the string numbers was divided at each index from 1 up to the string's length. 
+    For the left substring, digits were summed as individual components, incrementing an addition count for each non-'0' digit after the first. 
+    The right substring was then added as a whole number to this sum. This approach aimed to check at each split if the total equaled the target sum, 
+    returning the number of additions required.
+
+This method had limitations, notably its inability to handle cases where multiple splits were necessary within plusStr itself to meet the target sum. 
+    It also proved inefficient for larger strings or higher sums due to its linear scanning and repeated calculations.
+
+This approach required multiple optimal splits to achieve the target sum. 
+    The method struggled with performance and accuracy, as it did not account for the possibility of needing more than one split within the plusStr to correctly form the target.
+
+It became clear that a more dynamic approach was necessary to effectively handle the complexity of multiple splits and their combinations.
+
+I transitioned to a recursive method to explore every possible way of inserting plus signs into the string. 
+    This allowed for a deeper and more flexible examination of split combinations.
+
+To enhance the efficiency of the recursive solution, I implemented memoization to store the results of previously computed splits. 
+    This significantly reduced the number of recalculations by caching intermediate sums and their respective minimum additions, 
+    speeding up the process for larger input sizes.
+
+The progression from an iterative to a recursive approach underscored the importance of selecting the right algorithmic strategy based on the problem's demands. 
+    The experience reinforced my understanding of recursion and dynamic programming, particularly in problems involving numerous possible combinations and states.
+The application of memoization taught me valuable lessons about optimizing recursive algorithms and managing computational overhead effectively.
