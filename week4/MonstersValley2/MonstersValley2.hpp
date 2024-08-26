@@ -24,7 +24,7 @@ class MonstersValley2 {
                         newMonster[new_scariness] = new_cost;
                     }
 
-                    if (scariness > dread[i]) {
+                    if (scariness >= dread[i]) {
                         if (!newMonster.count(scariness) || newMonster[scariness] > cost) {
                             newMonster[scariness] = cost;
                         }
