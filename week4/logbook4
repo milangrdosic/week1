@@ -33,4 +33,50 @@ The array is then reversed.
 The spell is then looped through where any instance of A or Z is changes to the next element of
     the AZ array.
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MonsterValley2 problem::
+
+Manao needs to traverse a valley filled with monsters.
+
+    The i-th monster he meets will have a scariness equal to dread[i]
+
+Manoa will bribe some of the monsters he meets and make them join him.
+
+    To bribe the i-th monster, Monao needs price[i] gold coins.
+    The price will be either 1 or 2.
+
+Manao travels alone at the start. Each monster he meets he has an option to bribe it, the monster  
+    may decide to attack after.
+        A monster will attack Manao if and only if he did not bribe it, and its scariness is strictly greater 
+        than the total scariness of all monsters in Manao's party.
     
+Put simply, if he comes across a monster that would attack him (scariess exceeds party's scariness
+    he has to bribe them.
+
+Or, if he encounters a monster that would not attack him, he may either bribe or simply walk past.
+
+My initial Idea is to create a map to hold Manao's current monster and its cost.
+
+itereate through the monsters, which is itterate through the array of dread and cost, comparing dread to manoas party's 
+    scariness value, and bribing or skipping the monster.
+
+if the monster is bribed, add to Manao's party and at the end add up the cost of his part and return the value.
+
+My initial idea was very close and here is the solution I ended up with in greater detial.
+
+Monao map is initialized with {dread[0]: price[0]} because Manao must bribe the first monster (he starts alone).
+
+For each subsequent monster, newMonster map is created empty at the start of the loop.
+
+For each newMonster, add the current monster's scariness and price to each state (s) from Monao
+    and store it in newMonster. This is checking the outcome of bribing the monster.
+
+If the current total scariness 's' is already greater than the monster's dread[i], 
+    copy the state as is to newMonster (no additional cost) because Manao can safely pass without bribing.
+
+After processing each monster, Monao is updated with the states from newMonster to use in the next iteration.
+
+After all monsters are processed, the answer is the smallest value in Monao, 
+    which represents the minimum cost required for Manao to safely traverse the entire valley.
+
