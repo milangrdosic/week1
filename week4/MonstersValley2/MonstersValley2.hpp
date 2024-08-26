@@ -44,5 +44,4 @@ class MonstersValley2 {
         return min_cost;
     }
 
-
-}
+};
