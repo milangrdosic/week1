@@ -1,0 +1,36 @@
+MagicSpell Problem::
+
+the problem is to decode a spell by first finding the A's and Z's and reversing their position,
+    e.g. "ABCZ" would be "ZBCA", only A's and Z's are reversed.
+
+i want to create a seperate string for the A's and Z's then reverse them
+and then add them back into their position,
+
+so given a spell "AABZCADZA"
+    the AZ string would be "AA_Z_A_ZA"
+    and the spell string would be "__B_C_D__"
+    then loop through checking both strings, if the first element of the string is '_'
+    check add the element of the other string to the decode spell.
+
+    e.g.
+    if AZ string != '_' {
+        decodedSpell = AZ substring of the index;
+        create new string that then decrements the spell
+        (so from "AZ_A_Z_AA" and "__B_C_D__" to "Z_A_Z_AA" and "_B_C_D__")
+    }
+
+I initally thought of this method as i was having trouble indexing the spell string
+    and comparing elements, and my solution became greatly over complicated.
+
+Upon reflection on a new day, the answer became far simpler.
+
+I created a vecotr<char> array for holding the values and postions of A's and Z's in the
+    spell array. I chose a vector array as it handles dynamic sizing and is safe of memory,
+    and are quite easy to use.
+
+The array is then reversed.
+
+The spell is then looped through where any instance of A or Z is changes to the next element of
+    the AZ array.
+
+    
