@@ -80,3 +80,31 @@ After processing each monster, Monao is updated with the states from newMonster 
 After all monsters are processed, the answer is the smallest value in Monao, 
     which represents the minimum cost required for Manao to safely traverse the entire valley.
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+RugSizes Problem::
+
+The task is to identify all viable rug dimensions (width and length) that can completely 
+    cover a given area. The critical condition is that no rug should have distinct even 
+    dimensions for both width and length. For instance, a 4x4 rug is permissible, 
+    but a 2x4 rug is not.
+
+Acceptable rug dimensions are any integer widths and lengths, excluding pairs where both 
+    are even and distinct from one another.
+
+The solution must treat rug dimension pairs as undirected, meaning 6x9 and 9x6 are considered identical.
+
+Start by iterating over possible widths from 1 up to and including the square root of the area. 
+    This range is chosen because for any pair of factors of the area, at least one factor must be 
+    less than or equal to its square root.
+
+For each potential width 'w', calculate the corresponding length 'l' by dividing the area by 'w'
+    This is efficient as it avoids unnecessary calculations by only considering divisors.
+
+To validate dimenstions:
+    Ensure w x l = area.
+    Exclude configurations where both 'w' and 'l' are even and distinct.
+    For symmetric cases like w = l, special consideration is given since such dimensions automatically satisfy the requirement.
+
+Maintain a counter that only increments for valid and unique configurations. 
+    By checking w≤l, we automatically account for the directionality of the dimensions,
+    ensuring pairs like 6x9 and 9x6 are not double-counted.
