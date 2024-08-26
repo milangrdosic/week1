@@ -6,42 +6,41 @@
 using namespace std;
 
 class MonstersValley2 {
+    public:
+        int minimumPrice(vector<int> dread, vector<int> price) {
+            int n = dread.size();
+            map<long long, int> manao; 
 
-    int minimumPrice(vector<int> dread, vector<int> price) {
-        int n = dread.size();
-        map<long long, int> manao; 
+            manao[dread[0]] = price[0];
 
-        manao[dread[0]] = price[0];
+            for (int i = 1; i < n; ++i) {
+                map<long long, int> newMonster;
 
-        for (int i = 1; i < n; ++i) {
-            map<long long, int> newMonster;
+                for (auto &[scariness, cost] : manao) {
+                    long long new_scariness = scariness + dread[i];
+                    int new_cost = cost + price[i];
 
-            for (auto &[scariness, cost] : manao) {
-                long long new_scariness = scariness + dread[i];
-                int new_cost = cost + price[i];
+                    if (!newMonster.count(new_scariness) || newMonster[new_scariness] > new_cost) {
+                        newMonster[new_scariness] = new_cost;
+                    }
 
-                if (!newMonster.count(new_scariness) || newMonster[new_scariness] > new_cost) {
-                    newMonster[new_scariness] = new_cost;
-                }
-
-                if (scariness > dread[i]) {
-                    if (!newMonster.count(scariness) || newMonster[scariness] > cost) {
-                        newMonster[scariness] = cost;
+                    if (scariness > dread[i]) {
+                        if (!newMonster.count(scariness) || newMonster[scariness] > cost) {
+                            newMonster[scariness] = cost;
+                        }
                     }
                 }
+
+                manao.swap(newMonster);
             }
 
-            manao.swap(newMonster);
-        }
-
-        int min_cost = INT_MAX;
-        for (auto &[scariness, cost] : manao) {
-            if (cost < min_cost) {
-                min_cost = cost;
+            int min_cost = INT_MAX;
+            for (auto &[scariness, cost] : manao) {
+                if (cost < min_cost) {
+                    min_cost = cost;
+                }
             }
+
+            return min_cost;
         }
-
-        return min_cost;
-    }
-
 };
