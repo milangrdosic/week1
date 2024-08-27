@@ -1,0 +1,10 @@
+Multiples Problem::
+
+given 3 integer inputs being min, max and factor. Determine how many numbers within 
+    that range are evenly divisible by factor.
+
+simple for loop from min to max inclusively with an if statement checking the remainder of 
+    the i-th value with the factor, and itterating a counter if the remainder is 0.
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
