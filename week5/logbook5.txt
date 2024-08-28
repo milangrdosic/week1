@@ -1,0 +1,56 @@
+Multiples Problem::
+
+given 3 integer inputs being min, max and factor. Determine how many numbers within 
+    that range are evenly divisible by factor.
+
+simple for loop from min to max inclusively with an if statement checking the remainder of 
+    the i-th value with the factor, and itterating a counter if the remainder is 0.
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////
+Barbecue Problem:://///
+/////////////////////
+
+///////////////////////////
+///Design and thinking:://///
+///////////////////////////
+Determine which family member at a barbecue should lose their share of the meat based on a 
+    series of votes. The complexity arises when members can vote multiple times for 
+    different members, necessitating a robust system to handle potential ties in votes.
+
+To manage the voting data I'm going to use two maps:
+
+votesReceived: This map associates each member’s index with the number of votes they received.
+votesCast: This map tracks the number of votes each member cast.
+Solution Design: The process involves iterating through these voting records and applying a series of checks to decide who should be excluded based on:
+
+The number of votes received.
+The number of votes each member cast, in the event of a tie.
+The smallest index as the final tiebreaker if ties persist after considering the above criteria.
+
+
+///////////////////////
+///Troubleshooting:://///
+///////////////////////
+The main difficulty arose in implementing the tie-breaking mechanism correctly. 
+    Ensuring that the system was fair and adhered to the stipulated rules required careful 
+    consideration and testing.
+
+Condition Testing: I systematically tested the conditions for updating the candidate to be excluded. 
+    This involved creating test scenarios where different members had the same number of votes but differed 
+    in how many votes they cast.
+
+Logical Verification: Each part of the if condition was verified for logical accuracy and completeness.
+    I particularly focused on ensuring that the final tie-breaker (member index) was correctly implemented.
+
+Adjustments were made to the initial implementation to better handle scenarios where multiple members had the 
+    same vote count. By refining how votes cast were evaluated in the context of a tie, 
+    I ensured that the system could handle all specified edge cases effectively.
+
+//////////////////
+///reflection:://///
+//////////////////
+
+Engaging with this problem has sharpened my analytical thinking and deepened my understanding 
+    of using maps in C++. It has also reinforced the value of thorough testing in developing reliable software solutions.
