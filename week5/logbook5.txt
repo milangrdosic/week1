@@ -54,3 +54,41 @@ Adjustments were made to the initial implementation to better handle scenarios w
 
 Engaging with this problem has sharpened my analytical thinking and deepened my understanding 
     of using maps in C++. It has also reinforced the value of thorough testing in developing reliable software solutions.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////
+RunLengthEncoding Problem::///
+//////////////////////////////
+
+The input strings are guaranteed to contain 0 to 50 characters, inclusive of numbers ('0'-'9') and uppercase letters ('A'-'Z'). 
+The task is to decode such strings into their literal forms, handling constraints such as maximum length and ensuring that the 
+    output doesn't exceed 50 characters.
+
+I designed a loop that would traverse the input string character by character.
+A number accumulator was used to build numbers as they appear before letters.
+Upon encountering a letter, the accumulated number (if any) was associated with that letter to expand it appropriately.
+Special consideration was given to cases where no number appears before a letter, defaulting the count to 1 for such scenarios.
+
+Testing revealed issues with sequences where letters appeared without preceding numbers. I adjusted the logic to automatically treat these as having a multiplicity of 1.
+Added a cumulative counter to ensure the total output length does not exceed the 50-character limit, returning "TOO LONG" if exceeded
+
+This problem reinforced my understanding of string manipulation in C++, particularly how to dynamically parse and construct strings based on 
+    conditional logic.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////
+RGBStreet Problem::///
+//////////////////////
+
+I chose to implement a recursive function with memoization. This method allows a clear, logical breakdown of the decision process. 
+    Each function call determines the minimal cost for the remainder of the houses based on the color chosen for the current house. 
+    By storing already computed results in a memoization table, I aimed to prevent redundant calculations and optimize performance.
+
+Initially, managing the transition between colors for adjacent houses was tricky. Ensuring that no two consecutive houses had the same color 
+    and minimizing costs simultaneously required precise control over the recursive transitions.
+
+This problem reinforced my understanding of dynamic programming and recursion. It highlighted the importance of memoization in optimizing recursive solutions, 
+    especially in problems with overlapping subproblems.
