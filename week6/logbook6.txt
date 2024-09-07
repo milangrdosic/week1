@@ -1,0 +1,37 @@
+///GoodHours problem///
+///////////////////////
+
+Problem Understanding and Initial Strategy:
+
+Given the task of identifying "good" times based on the equality of the products of their digits, I recognized the need for an algorithm that can efficiently navigate through time increments. The problem requires splitting a time's digits in three potential configurations, checking each for product equality:
+
+H and H
+- The first digit and the product of the remaining three.
+HH and MM - The product of the first two digits and the product of the last two.
+HH
+and M - The product of the first three digits and the last digit.
+The strategy involved parsing the "HH
+" format, iterating over the time range, and applying these checks systematically.
+
+Development and Troubleshooting:
+
+Initial challenges arose when handling times that span across midnight, such as from "23:00" to "01:00". 
+ The basic loop structure failed to account for this, as it would prematurely terminate due to the start time being numerically greater than the end time.
+
+Initially, the loop structure did not correctly handle cases where the afterTime was numerically
+ less than the beforeTime, which is typical when the time range spans over midnight. 
+ This was evident when the algorithm failed to count any "good" times in test cases like "23:00" to "01:00".
+
+Introduced a conditional reset for the minute counter inside the nested loop. 
+ This was crucial for starting the minute count from 0 on the next hour immediately
+ after the first loop iteration, ensuring continuous counting through the day.
+
+Adjusted the condition within the inner loop (if (i == finishHH && j > finishMM) break;) 
+ to terminate the loop precisely when the end time is exceeded in the final hour of the range.
+
+
+Insight and Reflection:
+
+The problem-solving process revealed significant insights into handling date-time data types and their peculiarities, 
+ such as day wrap-around and minute reset at each hour. The adjustment to a linear and continuous counting mechanism rather 
+ than segmenting the day provided a more robust and error-resistant approach.
