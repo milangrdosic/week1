@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 
 class BlackAndWhiteSolitaire {
@@ -17,7 +16,6 @@ class BlackAndWhiteSolitaire {
 
             for(int i = 0; i <= N; i++) {
                 curr = cardFront[i];
-                cout << curr;
                 if(curr == prev) {
                     if(curr == "B") {
                         cardFront[i] += 21;
@@ -29,11 +27,11 @@ class BlackAndWhiteSolitaire {
                         flips1++;
                     }
                 }
-                //cout << curr;
                 prev = curr;
             }
 
             if(cardFront2[0] == cardFront2[1]) {
+                flips2 = 0;
                 if(cardFront2[0] == 'B') {
                     cardFront2[0] += 21;
                     flips2++;
@@ -41,6 +39,8 @@ class BlackAndWhiteSolitaire {
                     cardFront2[0] -= 21;
                     flips2++;
                 }
+
+                
 
                 for(int i = 0; i < N; i++) {
                 curr = cardFront2[i];
@@ -57,10 +57,8 @@ class BlackAndWhiteSolitaire {
                     }
                 }
                 prev = curr;
+                }
             }
-
-            }
-
 
 
             if(flips2 < flips1) {

@@ -2,7 +2,7 @@
 
 int main() {
     BlackAndWhiteSolitaire game;
-    string cardFront = "BWWW";
+    string cardFront = "BBWBWWBWBWWBBBWBWBWBBWBBW";
 
     cout << game.minimumTurns(cardFront) << endl;
     return 0;
