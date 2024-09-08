@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class BlackAndWhiteSolitare {
+class BlackAndWhiteSolitaire {
     public:
         int minimumTurns(string cardFront) {
             int N = cardFront.length();
