@@ -12,11 +12,11 @@ class BlackAndWhiteSolitaire {
             string prev = "";
             string next = "";
             int flips1 = 0;
-            int flips2 = 0;
+            int flips2 = INT_MAX;
 
-            for(int i = 0; i < N; i++) {
+            for(int i = 0; i <= N; i++) {
                 curr = cardFront[i];
-
+                cout << curr;
                 if(curr == prev) {
                     if(curr == "B") {
                         cardFront[i] += 21;
@@ -28,6 +28,7 @@ class BlackAndWhiteSolitaire {
                         flips1++;
                     }
                 }
+                //cout << curr;
                 prev = curr;
             }
 
