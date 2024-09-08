@@ -35,3 +35,42 @@ Insight and Reflection:
 The problem-solving process revealed significant insights into handling date-time data types and their peculiarities, 
  such as day wrap-around and minute reset at each hour. The adjustment to a linear and continuous counting mechanism rather 
  than segmenting the day provided a more robust and error-resistant approach.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///BlackAndWhiteSolitare problem///
+///////////////////////////////////
+
+Problem Understanding and Initial Strategy///
+/////////////////////////////////////////////
+The BlackAndWhiteSolitaire problem involves a sequence of cards, each displayed either 'B' 
+ (black) or 'W' (white). The objective is to achieve an alternating sequence where no two 
+ consecutive cards are the same color, by flipping the minimum number of cards.
+
+e.g.
+For the sequence "BBBW", flipping the second 'B' results in an alternating pattern "BWBW", 
+ requiring one flip.
+
+Development and Troubleshooting///
+//////////////////////////////////
+Considered treating the string like a linked list for ease of traversal, 
+ keeping track of the current and previous card states.
+
+If two consecutive cards are the same, flip the current card to ensure alternation. 
+ This approach was direct but lacked global optimization.
+
+Initially, the algorithm made local decisions to flip the next card if two consecutive cards were the same. 
+ However, this approach did not account for cases where flipping earlier cards might lead to fewer overall flips.
+
+Did not initially consider the impact of the sequence's starting card on the total number of flips required.
+
+Insight and Reflection///
+/////////////////////////
+Noted an improvement in the speed of problem-solving and clarity in planning. Early mistakes led to a deeper 
+ understanding of string manipulation and iterative logic.
+
+Gained proficiency in managing string operations and logical structures, particularly in optimizing solutions for 
+ problems requiring manipulation of sequential data.
+
+Plans to further refine skills in algorithm optimization and handling edge cases, which are crucial for ensuring the 
+ robustness and efficiency of solutions.

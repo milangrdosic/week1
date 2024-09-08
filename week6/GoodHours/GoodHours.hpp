@@ -26,7 +26,7 @@ public:
             for (int j = (i == startHH ? startMM : 0); j <= (currentHour == finishHH % 24 ? finishMM : 59); j++) {
                 string I = (currentHour < 10 ? "0" : "") + to_string(currentHour);
                 string J = (j < 10 ? "0" : "") + to_string(j);
-
+                
                 int H1 = I[0] - '0';
                 int H2 = I[1] - '0';
                 int M1 = J[0] - '0';
