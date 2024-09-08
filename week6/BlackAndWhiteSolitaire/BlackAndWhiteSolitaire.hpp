@@ -12,7 +12,7 @@ class BlackAndWhiteSolitaire {
             string prev = "";
             string next = "";
             int flips1 = 0;
-            int flips2 = 50;
+            int flips2 = 0;
 
             for(int i = 0; i <= N; i++) {
                 curr = cardFront[i];
@@ -30,35 +30,33 @@ class BlackAndWhiteSolitaire {
                 prev = curr;
             }
 
-            if(cardFront2[0] == cardFront2[1]) {
-                flips2 = 0;
-                if(cardFront2[0] == 'B') {
-                    cardFront2[0] += 21;
-                    flips2++;
-                } else {
-                    cardFront2[0] -= 21;
-                    flips2++;
-                }
+            if(cardFront2[0] == 'B') {
+                cardFront2[0] += 21;
+                flips2++;
+            } else {
+                cardFront2[0] -= 21;
+                flips2++;
+            }
 
                 
 
-                for(int i = 0; i < N; i++) {
-                curr = cardFront2[i];
+            for(int i = 0; i < N; i++) {
+            curr = cardFront2[i];
 
-                if(curr == prev) {
-                    if(curr == "B") {
-                        cardFront2[i] += 21;
-                        curr = cardFront2[i];
-                        flips2++;
-                    } else {
-                        cardFront2[i] -= 21;
-                        curr = cardFront2[i];
-                        flips2++;
-                    }
-                }
-                prev = curr;
+            if(curr == prev) {
+                if(curr == "B") {
+                    cardFront2[i] += 21;
+                    curr = cardFront2[i];
+                    flips2++;
+                } else {
+                    cardFront2[i] -= 21;
+                    curr = cardFront2[i];
+                    flips2++;
                 }
             }
+            prev = curr;
+            }
+
 
 
             if(flips2 < flips1) {
