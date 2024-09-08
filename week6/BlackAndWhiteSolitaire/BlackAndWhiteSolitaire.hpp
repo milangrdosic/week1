@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <climits>
+
 
 using namespace std;
 
@@ -13,7 +13,7 @@ class BlackAndWhiteSolitaire {
             string prev = "";
             string next = "";
             int flips1 = 0;
-            int flips2 = INT_MAX;
+            int flips2 = 50;
 
             for(int i = 0; i <= N; i++) {
                 curr = cardFront[i];
