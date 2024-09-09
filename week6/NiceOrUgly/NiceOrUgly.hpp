@@ -8,6 +8,7 @@ class NiceOrUgly {
         string describe(string s) {
             bool ugly = 0, nice = 0, question = 0;
             int vowel = 0; int consonant = 0;
+            int qCount = 0;
             int size = s.length();
             string sVow = s;
             string sCon = s;
@@ -15,12 +16,16 @@ class NiceOrUgly {
             // ? check and string initialization
             for(int i = 0; i < size; i++) {
                 if(s[i] == '?') {
+                    qCount++;
                     question = true;
                     sVow[i] = 'O';
                     sCon[i] = 'Z';
                 }
             }
-
+            if  (qCount == size) {
+                return "42";
+            }
+            
             // checking for consonants and vowels strings 
             if(question == true) {
                 for(int i = 0; i < size; i++) {
