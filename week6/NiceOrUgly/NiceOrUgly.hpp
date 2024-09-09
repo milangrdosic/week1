@@ -6,7 +6,7 @@ using namespace std;
 class NiceOrUgly {
     public:
         string describe(string s) {
-            bool ugly, nice, question;
+            bool ugly = 0, nice = 0, question = 0;
             int vowel = 0; int consonant = 0;
             int size = s.length();
             string sVow = s;
@@ -40,6 +40,7 @@ class NiceOrUgly {
                 if(consonant != 5 && vowel != 3) { // NICE check
                     nice = true;
                 }
+
                 consonant = 0;
                 vowel = 0;
 
@@ -73,10 +74,11 @@ class NiceOrUgly {
                     }
                     if(consonant == 5 || vowel == 3) {
                         ugly = true;
+                        break;
                     }
                 }
             }
-            
+
             if(ugly == true && nice == true) {
                 return "42";
             } else if (ugly == true) {
