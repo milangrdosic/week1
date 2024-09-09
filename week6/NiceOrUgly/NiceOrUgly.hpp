@@ -9,14 +9,17 @@ public:
         string allVowels = replaceQuestionMarks(s, true);
         string allConsonants = replaceQuestionMarks(s, false);
         string adaptiveReplace = adaptiveQuestionMarks(s);
+        string adaptiveEndReplace = adaptiveQuestionMarksFromEnd(s);
+        
 
         bool isAllVowelsUgly = isUgly(allVowels);
         bool isAllConsonantsUgly = isUgly(allConsonants);
         bool isAdaptiveUgly = isUgly(adaptiveReplace);
-
-        if (isAllVowelsUgly && isAllConsonantsUgly && isAdaptiveUgly) {
+        bool isAdaptiveEndUgly = isUgly(adaptiveEndReplace);
+        
+        if (isAllVowelsUgly && isAllConsonantsUgly && isAdaptiveUgly && isAdaptiveEndUgly) {
             return "UGLY";
-        } else if (!isAllVowelsUgly && !isAllConsonantsUgly && !isAdaptiveUgly) {
+        } else if (!isAllVowelsUgly && !isAllConsonantsUgly && !isAdaptiveUgly && !isAdaptiveEndUgly) {
             return "NICE";
         } else {
             return "42";
@@ -24,7 +27,37 @@ public:
     }
 
 private:
-    // Replace all '?' with vowels or consonants uniformly
+    string adaptiveQuestionMarksFromEnd(string s) {
+        int vowelCount = 0, consonantCount = 0;
+        // Traverse from the end to the start
+        for (int i = s.size() - 1; i >= 0; --i) {
+            if (s[i] == '?') {
+                if (vowelCount >= 2) { 
+                    s[i] = 'Z';
+                    vowelCount = 0; 
+                    consonantCount = 1;
+                } else if (consonantCount >= 4) { 
+                    s[i] = 'A';
+                    consonantCount = 0;
+                    vowelCount = 1;
+                } else {
+
+                    s[i] = 'Z';
+                    consonantCount++;
+                    vowelCount = 0;
+                }
+            } else {
+                if (isVowel(s[i])) {
+                    vowelCount++;
+                    consonantCount = 0;
+                } else {
+                    consonantCount++;
+                    vowelCount = 0;
+                }
+            }
+        }
+        return s;
+    }
     string replaceQuestionMarks(const string& s, bool useVowel) {
         string result = s;
         for (char& c : result) {
@@ -35,21 +68,19 @@ private:
         return result;
     }
 
-    // Adaptively replace '?' based on the context to prevent sequences of vowels or consonants
     string adaptiveQuestionMarks(string s) {
         int vowelCount = 0, consonantCount = 0;
         for (int i = 0; i < s.size(); ++i) {
             if (s[i] == '?') {
-                if (vowelCount >= 2) { // already 2 vowels, place a consonant
+                if (vowelCount >= 2) {
                     s[i] = 'Z';
                     vowelCount = 0;
                     consonantCount = 1;
-                } else if (consonantCount >= 4) { // already 4 consonants, place a vowel
+                } else if (consonantCount >= 4) { 
                     s[i] = 'A';
                     consonantCount = 0;
                     vowelCount = 1;
                 } else {
-                    // place a vowel by default if not in danger of becoming ugly
                     s[i] = 'A';
                     vowelCount++;
                     consonantCount = 0;
