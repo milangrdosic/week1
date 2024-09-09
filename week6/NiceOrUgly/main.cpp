@@ -2,7 +2,7 @@
 
 int main() {
     NiceOrUgly game;
-    string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string s = "EE?FFFF";
 
     cout << game.describe(s) << endl;
     return 0;

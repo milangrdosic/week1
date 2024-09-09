@@ -38,14 +38,17 @@ class NiceOrUgly {
                     consonant++;
                     vowel = 0;
                 }
+                if(consonant == 5 || vowel == 3) {
+                    perf = 0;
+                }
             }
-
             if(perf == -1 && question == true) {
                 perf = 1;
             }
             
             vowel = 0;
             consonant = 0;
+
             if  (qCount == size && size > 3) {
                 return "42";
             }
@@ -70,7 +73,7 @@ class NiceOrUgly {
                 if(consonant != 5 && vowel != 3) { // NICE check
                     nice = true;
                 }
-
+                cout << sVow;
                 consonant = 0;
                 vowel = 0;
 
