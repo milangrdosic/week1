@@ -74,3 +74,55 @@ Gained proficiency in managing string operations and logical structures, particu
 
 Plans to further refine skills in algorithm optimization and handling edge cases, which are crucial for ensuring the 
  robustness and efficiency of solutions.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///NiceOrUgly problem///
+////////////////////////
+
+Problem Understanding and Initial Strategy///
+/////////////////////////////////////////////
+
+word is 'ugly' if it has 3 vowels in a row, or 5 constants in a row.
+a string is nice if it is not ugly
+return 42 if a string can be ugly or nice
+
+initially to satisfy 'ugly' i will have a counter for vowels and constants
+so if there is a vowel, vowel++
+if theres a constant, constanant++
+whenever vowel or constant is incremented, the other will be set to 0 as the patters is interupted
+
+if vowel = 3 or constant = 5, return "ugly"
+
+return nice if else,
+
+given a string with no '?'
+
+for loop through each element checking for vowels and constanants.
+when for loop is finsihed,
+check if ugly bool is true, else
+return nice
+
+
+given a string with '?'
+
+create two string copies,
+
+string sVow
+string sCon
+bool question mark;
+
+for loop through and replace the '?' with vowel or constanant
+
+if question mark bool is true,
+
+for loops checking each string will be run, 
+if not met,
+the usual code is run.
+
+if question mark is true
+run code,
+have nice bool
+
+at the end have a if statement to check for both ugly and nice bool,
+and return 42 if true.
