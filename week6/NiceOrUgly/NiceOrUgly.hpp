@@ -76,6 +76,7 @@ class NiceOrUgly {
                     }
                 }
             }
+            
             if(ugly == true && nice == true) {
                 return "42";
             } else if (ugly == true) {
