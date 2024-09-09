@@ -6,145 +6,59 @@ using namespace std;
 class NiceOrUgly {
     public:
         string describe(string s) {
-            bool ugly = 0, nice = 0, question = 0;
-            int perf = -1;
-            int vowel = 0; int consonant = 0;
-            int qCount = 0;
+            bool ugly = false, canBeNice = true;
             int size = s.length();
-            string sVow = s;
-            string sCon = s;
-            string sPerf = s;
 
-            // ? check and string initialization
-            for(int i = 0; i < size; i++) {
-                if( s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
-                    vowel++;
-                    consonant = 0;
-                } else if (s[i] == '?') {
-                    if(vowel >= 1) {
-                        sPerf[i] = 'Z';
-                        consonant++;
-                    } else if (consonant > 1) {
-                        sPerf[i] = 'O';
-                        vowel++;
-                    } else {
-                        perf = 0;
+            int totalCases = 1 << count(s.begin(), s.end(), '?');
+            for (int mask = 0; mask < totalCases; mask++) {
+                string testStr = s;
+                int questionIndex = 0;
+                for (int i = 0; i < size; i++) {
+                    if (s[i] == '?') {
+                        if (mask & (1 << questionIndex)) {
+                            testStr[i] = 'O'; 
+                        } else {
+                            testStr[i] = 'Z'; 
+                        }
+                        questionIndex++;
                     }
-                    qCount++;
-                    question = true;
-                    sVow[i] = 'O';
-                    sCon[i] = 'Z';
+                }
+                if (isUgly(testStr)) {
+                    ugly = true;
                 } else {
-                    consonant++;
-                    vowel = 0;
-                }
-                if(consonant == 5 || vowel == 3) {
-                    perf = 0;
+                    canBeNice = false; 
                 }
             }
-            if(perf == -1 && question == true) {
-                perf = 1;
-            }
-            
-            vowel = 0;
-            consonant = 0;
 
-            if  (qCount == size && size > 3) {
-                return "42";
-            }
-
-            // checking for consonants and vowels strings 
-            if(question == true) {
-                // vowel check
-                for(int i = 0; i < size; i++) {
-                    if( sVow[i] == 'A' || sVow[i] == 'E' || sVow[i] == 'I' || sVow[i] == 'O' || sVow[i] == 'U') {
-                        vowel++;
-                        consonant = 0;
-                    } else {
-                        consonant++;
-                        vowel = 0;
-                    }
-                    if(consonant == 5 || vowel == 3) {
-                        ugly = true;
-                        break;
-                    }
-                }
-
-                if(consonant != 5 && vowel != 3) { // NICE check
-                    nice = true;
-                }
-                cout << sVow;
-                consonant = 0;
-                vowel = 0;
-
-                // consonant check
-                for(int i = 0; i < size; i++) {
-                    if( sCon[i] == 'A' || sCon[i] == 'E' || sCon[i] == 'I' || sCon[i] == 'O' || sCon[i] == 'U') {
-                        vowel++;
-                        consonant = 0;
-                    } else {
-                        consonant++;
-                        vowel = 0;
-                    }
-                    if(consonant == 5 || vowel == 3) {
-                        ugly = true;
-                        break;
-                    }
-                }
-
-                if(consonant != 5 && vowel != 3) {
-                    nice = true;
-                }
-                consonant = 0;
-                vowel = 0;
-
-                // // perfect s check
-                // if (perf == true && nice != true) {
-                //     for(int i = 0; i < size; i++) {
-                //         if( sVow[i] == 'A' || sVow[i] == 'E' || sVow[i] == 'I' || sVow[i] == 'O' || sVow[i] == 'U') {
-                //             vowel++;
-                //             consonant = 0;
-                //         } else {
-                //             consonant++;
-                //             vowel = 0;
-                //         }
-                //         if(consonant == 5 || vowel == 3) {
-                //             ugly = true;
-                //             break;
-                //         }
-                //     }
-
-                    
-                //     if(consonant != 5 && vowel != 3) { // NICE check
-                //         nice = true;
-                //     }
-                // }
-
-                
-            } else {
-                for(int i = 0; i < size; i++) {
-                    if( s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
-                        vowel++;
-                        consonant = 0;
-                    } else {
-                        consonant++;
-                        vowel = 0;
-                    }
-                    if(consonant == 5 || vowel == 3) {
-                        ugly = true;
-                        break;
-                    }
-                }
-            }
-            if(nice != 1 && perf == 1) {
-                nice = 1;
-            }
-            
-            if(ugly == true && nice == true) {
-                return "42";
-            } else if (ugly == true) {
+            if (ugly && !canBeNice) {
                 return "UGLY";
+            } else if (!ugly && canBeNice) {
+                return "NICE";
+            } else {
+                return "42"; 
             }
-            return "NICE";
+        }
+
+    private:
+        bool isUgly(const string& str) {
+            int vowelCount = 0;
+            int consonantCount = 0;
+            for (char ch : str) {
+                if (isVowel(ch)) {
+                    vowelCount++;
+                    consonantCount = 0;
+                } else {
+                    consonantCount++;
+                    vowelCount = 0;
+                }
+                if (vowelCount == 3 || consonantCount == 5) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool isVowel(char c) {
+            return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
         }
 };
