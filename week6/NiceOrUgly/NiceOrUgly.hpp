@@ -22,7 +22,7 @@ class NiceOrUgly {
                     sCon[i] = 'Z';
                 }
             }
-            if  (qCount == size && size > 1) {
+            if  (qCount == size && size < 3) {
                 return "42";
             }
 
