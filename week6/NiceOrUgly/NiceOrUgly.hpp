@@ -22,10 +22,10 @@ class NiceOrUgly {
                     sCon[i] = 'Z';
                 }
             }
-            if  (qCount == size) {
+            if  (qCount == size && size > 1) {
                 return "42";
             }
-            
+
             // checking for consonants and vowels strings 
             if(question == true) {
                 for(int i = 0; i < size; i++) {
