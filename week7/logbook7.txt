@@ -1,0 +1,63 @@
+///MinimalDifference problem::///
+/////////////////////////////////
+
+Problem Understanding and Initial Strategy:
+ The 'MinimalDifference' problem requires finding an integer X within a specified range 
+ [A,B] such that the absolute difference between the digit sum of X and the digit sum of another given integer 
+ C is minimized. If multiple X satisfy this condition, we must select the smallest one.
+
+Digit Sum Function:
+ Created a function digitSum(int n) to calculate the sum of digits of a given number.
+ Used a loop to extract each digit by taking the modulo of 10 and adding it to a sum variable.
+ Ensured that the function handles large numbers efficiently.
+
+Main Logic:
+ Calculated the digit sum of C once at the beginning. Initialized variables to store the minimum 
+ difference (minDifference) and the result (resultX). Iterated from A to B using a for-loop.
+ For each X, calculated its digit sum and the absolute difference. Updated minDifference and resultX 
+ if a smaller difference was found.
+
+
+Relfection:
+ Learned that a simple solution can be the most efficient within given constraints.
+ By not overcomplicating the digit sum function, the code remained clean and easy to understand.
+ Realized the importance of thoroughly analyzing problem constraints before attempting to optimize.
+ The manageable range size allowed for a straightforward iteration without performance issues.
+ Improved in translating problem requirements into effective code.
+ Enhanced ability to handle numerical computations involving large numbers.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+///VeryInterestingMovie Porblem::///
+////////////////////////////////////
+
+Problem Understanding and Initial Strategy:
+ The 'VeryInterestingMovie' problem involves seating students in a theater such that no two students in the 
+ same row are seated in adjacent seats. The theater's seating arrangement is provided as a String[] seats, 
+ where each string represents a row, and each character within the string represents a seat that is either available ('Y') or not available ('N').
+
+Dynamic Programing Aproach:
+ For each row, use dynamic programming to consider two scenarios for each seat
+ Seat Not Occupied: Calculate the maximum number of students when the current seat is not occupied.
+ Seat Occupied: Calculate the maximum number of students when the current seat is occupied, ensuring that the previous seat was not occupied.
+ This approach helps in exploring all possible seating configurations while adhering to the constraints.
+
+Development and Troubleshooting:
+ Initialized two arrays, dpNotOccupied and dpOccupied, for each row to keep track of the maximum number of students based on seat occupancy.
+ Handled the first seat separately to set up base cases for the DP arrays.
+
+ Iterated over each seat in the row starting from the second seat.
+ When Seat is Available ('Y'):
+ Not Occupying Seat i:
+  notOccupied[i] = max(dpNotOccupied[i - 1], dpOccupied[i - 1])
+ Occupying Seat i:
+  Occupied[i] = dpNotOccupied[i - 1] + 1 (Only if seat i - 1 is not occupied)
+
+Insight and Reflection:
+learning:
+ Reinforced the power of dynamic programming in solving optimization problems with overlapping subproblems.
+ The DP approach provided a systematic way to explore all feasible seating arrangements efficiently.
+
+reflection:
+Systematic breakdown of the problem into manageable components.
+Effective use of dynamic programming to capture the essence of the adjacency constraint.
+Thorough testing with provided examples to validate the solution.

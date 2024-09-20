@@ -83,46 +83,27 @@ Plans to further refine skills in algorithm optimization and handling edge cases
 Problem Understanding and Initial Strategy///
 /////////////////////////////////////////////
 
-word is 'ugly' if it has 3 vowels in a row, or 5 constants in a row.
-a string is nice if it is not ugly
-return 42 if a string can be ugly or nice
+Problem Understanding and Strategy:
+Defined 'ugly' as having 3 consecutive vowels or 5 consecutive consonants.
+A string is 'nice' if it does not meet the 'ugly' criteria.
+Special case where a string can be either (return '42') when '?' characters are involved which can be replaced by either a vowel or a consonant.
+Implemented counters for both vowels and consonants to track consecutive occurrences.
+Reset the counter of one type when the other type is encountered to maintain the sequence check.
+For strings without '?', simply iterate through the string and apply the counting logic.
+For strings with '?', create two scenarios—one replacing '?' with vowels and the other with consonants—then apply the counting logic to both.
 
-initially to satisfy 'ugly' i will have a counter for vowels and constants
-so if there is a vowel, vowel++
-if theres a constant, constanant++
-whenever vowel or constant is incremented, the other will be set to 0 as the patters is interupted
+Debugging and Adjustments///
+////////////////////////////
 
-if vowel = 3 or constant = 5, return "ugly"
+Initially encountered issues with handling '?' in mixed sequences where the optimal choice of replacement wasn't clear.
+Adjusted the implementation to dynamically decide on replacing '?' based on the previous characters to avoid creating an 'ugly' sequence.
+Ensured that all non-trivial corrections such as off-by-one errors in counters or incorrect resets of counters were noted and adjusted.
 
-return nice if else,
+reflection///
+/////////////
 
-given a string with no '?'
-
-for loop through each element checking for vowels and constanants.
-when for loop is finsihed,
-check if ugly bool is true, else
-return nice
-
-
-given a string with '?'
-
-create two string copies,
-
-string sVow
-string sCon
-bool question mark;
-
-for loop through and replace the '?' with vowel or constanant
-
-if question mark bool is true,
-
-for loops checking each string will be run, 
-if not met,
-the usual code is run.
-
-if question mark is true
-run code,
-have nice bool
-
-at the end have a if statement to check for both ugly and nice bool,
-and return 42 if true.
+This problem required careful consideration of sequence checking and dynamic decision-making based on string content.
+Enhanced understanding of string manipulation and condition-based problem-solving.
+Gained insights into the importance of considering all possible scenarios in problems involving conditional replacements.
+Reflecting on the outcomes, the solution required multiple iterations to handle the dynamic nature of '?' effectively.
+The problem reiterated the importance of clear problem definition and pre-planning in coding which significantly guided the implementation phase.

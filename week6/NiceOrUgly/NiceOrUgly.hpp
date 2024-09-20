@@ -16,6 +16,7 @@ public:
         bool isAllConsonantsUgly = isUgly(allConsonants);
         bool isAdaptiveUgly = isUgly(adaptiveReplace);
         bool isAdaptiveEndUgly = isUgly(adaptiveEndReplace);
+        cout << allVowels;
         
         if (isAllVowelsUgly && isAllConsonantsUgly && isAdaptiveUgly && isAdaptiveEndUgly) {
             return "UGLY";
