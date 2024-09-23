@@ -6,16 +6,6 @@
 using namespace std;
 
 class MinimalDifference {
-    private:
-        int digitSum(int n) {
-            int sum = 0;
-            while (n != 0) {
-                sum += n % 10;
-                n /= 10;
-            }
-            return abs(sum);
-        }
-
     public:
         int findNumber(int A, int B, int C) {
             int sumC = digitSum(C);
@@ -34,4 +24,14 @@ class MinimalDifference {
             }
             return resultX;
         }
+
+        int digitSum(int n) {
+            int sum = 0;
+            while (n != 0) {
+                sum += n % 10;
+                n /= 10;
+            }
+            return abs(sum);
+        }
+
 };
