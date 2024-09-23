@@ -98,3 +98,16 @@ Development and Troubleshooting:
 Reflection:
  Recognized the efficiency of combining binary search with a feasibility check for partitioning problems.
  Understood that this approach reduces the problem from exponential to logarithmic time complexity.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+///PrefixFreeSets Porblem::///
+//////////////////////////////
+
+Problem Understanding and Initial Strategy:
+ 
+ The problem requires inding the maximum number of elements in a subset of words where no word is a prefix of 
+ another.
+
+ Detirmine the size of the largest prefix-free subset.
+ 

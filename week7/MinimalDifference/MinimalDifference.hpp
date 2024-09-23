@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class MinimalDifference {
+class MinimalDifferen {
     public:
         int findNumber(int A, int B, int C) {
             int sumC = digitSum(C);
