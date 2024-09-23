@@ -61,3 +61,40 @@ reflection:
 Systematic breakdown of the problem into manageable components.
 Effective use of dynamic programming to capture the essence of the adjacency constraint.
 Thorough testing with provided examples to validate the solution.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+///FairWorkload Porblem::///
+////////////////////////////
+
+Problem Understanding and Initial Strategy:
+ A line of filing cabinets, each containing a certain number of folders.
+ The cabinets are arranged in a specific order and connot be rearranged.
+ With N number of workers.
+
+ Partition the filing cabinets into N contiguous sections, one for each worker.
+ cabinets are sectioned of so what the ith worker searches comes before the jth worker.
+ for i < j.
+ no cabinets left unassigned.
+ Need distribute the cabinets so that the worker who has to look through the most cabinets has as few folders as possible, 
+  and this maximum is as small as possible.
+
+Development and Troubleshooting:
+ This is an optimization problem, specifically minimizing the maximum value among a set of sums.
+ Enumerate all possible ways to partition the cabinets. Not feasible due to exponential time complexity.
+ 
+ Binary search will be used to solve the problem:
+  Recognized as the most efficient approach for this problem.
+  can be used to find the minimal possible maximum workload.
+  At each step, perform a feasibility check to see if it's possible to partition the cabinets under the current maximum workload constraint.
+
+ Integer Overflow Consideration:
+  Initially used int for variables storing the sum of folders. Recognized that for larger sums, long long might be necessary.
+  Given the constraints, int sufficed, but noted for future problems.
+
+ Mid Calculation:
+  Corrected the calculation of mid to prevent potential overflow:
+  Changed from (low + high) / 2 to low + (high - low) / 2.
+
+Reflection:
+ Recognized the efficiency of combining binary search with a feasibility check for partitioning problems.
+ Understood that this approach reduces the problem from exponential to logarithmic time complexity.
